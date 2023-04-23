@@ -2,7 +2,7 @@ package ro.commands;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import ro.game.Exploration;
+import ro.game.explorations.Exploration;
 
 @AllArgsConstructor
 @Log4j2

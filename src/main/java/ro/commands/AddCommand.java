@@ -2,8 +2,10 @@ package ro.commands;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import ro.game.Exploration;
+import ro.game.explorations.Exploration;
+import ro.game.explorations.MatrixExploration;
 import ro.players.Robot;
+import ro.utils.NodeUtils;
 
 @AllArgsConstructor
 @Log4j2
@@ -14,6 +16,12 @@ public class AddCommand implements Command {
     public void execute() {
         Exploration exploration = robot.getExploration();
         exploration.addRobot(robot);
-        System.out.printf("Robot %s was created and placed on coordinates (%d %d)\n", robot.getName(), robot.getRow(), robot.getColumn());
+        if(exploration instanceof MatrixExploration) {
+            System.out.printf("Robot %s was created and placed on coordinates %s.\n", robot.getName(),
+                    NodeUtils.mapNodeToCoordinates(robot.getNodeId(), exploration.getMapLimit()));
+        }
+        else {
+            System.out.printf("Robot %s was created and placed on node %d.\n", robot.getName(), robot.getNodeId());
+        }
     }
 }

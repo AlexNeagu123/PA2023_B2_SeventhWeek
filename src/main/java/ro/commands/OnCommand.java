@@ -2,7 +2,7 @@ package ro.commands;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import ro.game.Exploration;
+import ro.game.explorations.Exploration;
 import ro.players.Robot;
 
 @AllArgsConstructor
@@ -15,7 +15,7 @@ public class OnCommand implements Command {
     public void execute() {
         for (Robot robot : exploration.getRobots()) {
             if (robot.getName().equals(robotName)) {
-                log.info(String.format("The execution of %s is resumed.", robot));
+                System.out.printf("The execution of %s is resumed.\n", robot);
                 robot.setPaused(false);
                 break;
             }

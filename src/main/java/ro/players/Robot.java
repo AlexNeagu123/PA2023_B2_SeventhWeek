@@ -3,73 +3,76 @@ package ro.players;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ro.game.Exploration;
+import ro.game.explorations.Exploration;
 import ro.exceptions.NoMoreFreeCoordinates;
-import ro.game.Coordinates;
 import ro.shared.Token;
-import ro.utils.Movement;
 
-import java.util.Collections;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
 
 @Getter
 @ToString(onlyExplicitlyIncluded = true)
 public class Robot implements Runnable {
+    protected final Exploration exploration;
     @ToString.Include
-    private final String name;
-    private final Exploration exploration;
-    private Coordinates coordinates;
+    protected final String name;
+    protected Integer nodeId;
     @Setter
-    private boolean running;
+    protected boolean running;
     @Setter
-    private boolean paused;
+    protected boolean paused;
+    protected int tokensPlaced;
+    protected final Deque<Integer> dfsStack;
 
     public Robot(String name, Exploration exploration) throws NoMoreFreeCoordinates {
         this.name = name;
+        this.tokensPlaced = 0;
         this.exploration = exploration;
-        this.coordinates = exploration.generateValidCoordinates();
+        this.nodeId = exploration.generateValidNode();
+        this.dfsStack = new ArrayDeque<>();
         this.running = true;
         this.paused = false;
-    }
-
-    public Robot(String name, Exploration exploration, Coordinates coordinates) {
-        this.name = name;
-        this.coordinates = coordinates;
-        this.exploration = exploration;
-        this.running = true;
-        this.paused = false;
-    }
-
-    public int getRow() {
-        return coordinates.getRow();
-    }
-
-    public int getColumn() {
-        return coordinates.getColumn();
-    }
-
-    private Coordinates getRandomNeighbour(Coordinates coordinates) {
-        List<Coordinates> validNeighbours = Movement.getValidNeighbours(coordinates);
-        Collections.shuffle(validNeighbours);
-        return validNeighbours.get(0);
     }
 
     public List<Token> extractTokensFromSharedData() {
-        return exploration.getSharedMemory().extractTokens(Exploration.MATRIX_LENGTH);
+        List<Token> extractedTokens = exploration.getSharedMemory().extractTokens(exploration.getMapLimit());
+        tokensPlaced += extractedTokens.size();
+        return extractedTokens;
     }
 
+    protected void updateDfsStack(List<Integer> neighbours) {
+        for (Integer neighbourId : neighbours) {
+            if (exploration.setVisitedIfNecessary(neighbourId)) {
+                dfsStack.add(neighbourId);
+            }
+        }
+    }
+
+    public int getNodeId() {
+        return nodeId;
+    }
+
+    @Override
     public void run() {
-        while (running) {
+        exploration.setVisitedIfNecessary(nodeId);
+        dfsStack.clear();
+        dfsStack.add(nodeId);
+        while (running && !dfsStack.isEmpty()) {
             if (paused) {
                 continue;
             }
             try {
-                exploration.getExplorationMap().visit(coordinates, this);
-                coordinates = getRandomNeighbour(coordinates);
-                Thread.sleep(4000);
+                nodeId = dfsStack.pollLast();
+                exploration.visit(nodeId, this);
+                updateDfsStack(exploration.getNeighbours(nodeId));
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+        }
+        if (this.running) {
+            this.running = false;
         }
     }
 }

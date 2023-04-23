@@ -1,4 +1,4 @@
-package ro.game;
+package ro.game.maps;
 
 import lombok.Getter;
 import ro.shared.Token;
