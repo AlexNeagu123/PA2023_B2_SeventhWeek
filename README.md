@@ -56,7 +56,7 @@ This repository contains solutions for:
 :heavy_check_mark: Implemented a concurrent algorithm for determining a **minimum spanning tree** in a weighted graph.
   - _:file_folder: src/main/java/ro/extra/ParallelMSTAlgorithm.java_
 
-:x: Consider the case in which the robots can share information when meeting at a vertex (fast collaborative graph exploration), the goal being to explore the whole graph in a minimum number of steps.
+:x: Considered the case in which the robots can share information when meeting at a vertex (fast collaborative graph exploration), the goal being to explore the whole graph in a minimum number of steps.
 
 :heavy_plus_sign: Created some JUnit tests for the concurrent algorithm that computes the minimum spanning tree in a weighted graph. 
  - _:file_folder: src/test/java/ro/extra/ParallelEdgeSorterTest.java_
