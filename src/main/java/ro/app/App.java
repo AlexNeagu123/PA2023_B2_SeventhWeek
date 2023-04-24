@@ -1,4 +1,4 @@
-package ro;
+package ro.app;
 
 import ro.game.explorations.Exploration;
 import ro.utils.CommandParser;

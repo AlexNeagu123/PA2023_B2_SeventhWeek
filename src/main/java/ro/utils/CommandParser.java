@@ -21,6 +21,10 @@ public class CommandParser {
         if (exploration.getState() != 0) {
             throw new CommandNotAvailableException("add");
         }
+
+        if (!exploration.hasUniqueName(arguments[0])) {
+            throw new InvalidCommandArgumentsException("add", String.format("A robot with the name '%s' already exists!", arguments[0]));
+        }
         return arguments[0];
     }
 
@@ -122,7 +126,7 @@ public class CommandParser {
     }
 
     public Command parseCommand(String commandText) throws CommandNotAvailableException, InvalidCommandArgumentsException, NoMoreFreeCoordinates, NonExistentCommand {
-        String[] splitCommand = commandText.split(" ", 2);
+        String[] splitCommand = commandText.split("\\s+");
         return matchAndBuildCommand(splitCommand[0], Arrays.copyOfRange(splitCommand, 1, splitCommand.length));
     }
 }

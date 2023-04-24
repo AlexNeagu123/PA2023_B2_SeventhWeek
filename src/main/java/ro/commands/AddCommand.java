@@ -17,11 +17,11 @@ public class AddCommand implements Command {
         Exploration exploration = robot.getExploration();
         exploration.addRobot(robot);
         if(exploration instanceof MatrixExploration) {
-            System.out.printf("Robot %s was created and placed on coordinates %s.\n", robot.getName(),
+            System.out.printf("Robot %s was created and placed on coordinates %s\n", robot.getName(),
                     NodeUtils.mapNodeToCoordinates(robot.getNodeId(), exploration.getMapLimit()));
         }
         else {
-            System.out.printf("Robot %s was created and placed on node %d.\n", robot.getName(), robot.getNodeId());
+            System.out.printf("Robot %s was created and placed on node %d\n", robot.getName(), robot.getNodeId());
         }
     }
 }

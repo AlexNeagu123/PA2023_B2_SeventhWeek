@@ -3,7 +3,7 @@ package ro.game.explorations;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
-import ro.TimeKeeper;
+import ro.app.TimeKeeper;
 import ro.exceptions.NoMoreFreeCoordinates;
 import ro.game.maps.ExplorationMap;
 import ro.players.Robot;

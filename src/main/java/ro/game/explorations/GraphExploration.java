@@ -1,7 +1,7 @@
 package ro.game.explorations;
 
 import lombok.extern.log4j.Log4j2;
-import ro.TimeKeeper;
+import ro.app.TimeKeeper;
 import ro.game.maps.GraphMap;
 import ro.shared.SharedMemory;
 

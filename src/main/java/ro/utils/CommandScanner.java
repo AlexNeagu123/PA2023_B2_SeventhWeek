@@ -2,7 +2,7 @@ package ro.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import ro.TimeKeeper;
+import ro.app.TimeKeeper;
 import ro.exceptions.InvalidEdgeCountException;
 import ro.exceptions.InvalidTimeLimitException;
 import ro.game.explorations.Exploration;

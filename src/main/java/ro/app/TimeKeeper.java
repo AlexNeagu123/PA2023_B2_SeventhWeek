@@ -1,4 +1,4 @@
-package ro;
+package ro.app;
 
 import ro.exceptions.InvalidTimeLimitException;
 

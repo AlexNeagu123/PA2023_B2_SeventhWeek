@@ -34,7 +34,7 @@ public class MatrixMap implements ExplorationMap {
     public void printFinalState() {
         for (int i = 0; i < length; ++i) {
             for (int j = 0; j < length; ++j) {
-                System.out.printf("Cell (%d, %d) contains the following tokens: [", i, j);
+                System.out.printf("Cell (%d, %d) contains the following tokens: ", i, j);
                 List<Token> tokenList = matrix[i][j].getTokenList();
                 Exploration.printTokenList(tokenList);
             }
