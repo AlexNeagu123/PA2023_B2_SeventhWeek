@@ -9,6 +9,9 @@ import ro.utils.NodeUtils;
 
 import java.util.List;
 
+/**
+ * The <tt>MatrixMap</tt> class implements all the matrix logic behind a {@link ro.game.explorations.MatrixExploration}
+ */
 @Log4j2
 public class MatrixMap implements ExplorationMap {
     private final Cell[][] matrix;

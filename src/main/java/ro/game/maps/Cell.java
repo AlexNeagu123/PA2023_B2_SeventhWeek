@@ -6,6 +6,9 @@ import ro.shared.Token;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The <tt>Cell</tt> class represents the space where all the {@link Token} objects are stored in each node.
+ */
 @Getter
 public class Cell {
     public List<Token> tokenList;

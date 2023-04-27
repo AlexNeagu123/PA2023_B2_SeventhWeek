@@ -1,5 +1,10 @@
 package ro.extra;
 
+/**
+ * The <tt>DisjointSetUnion</tt> class represents a <b>Disjoint Set Union</b> data structure.
+ *
+ * @see <a href="https://cp-algorithms.com/data_structures/disjoint_set_union.html">Disjoint Set Union</a>
+ */
 public class DisjointSetUnion {
     private final int[] parent;
     private final int[] size;

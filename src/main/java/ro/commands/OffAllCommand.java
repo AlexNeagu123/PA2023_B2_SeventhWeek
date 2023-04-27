@@ -5,6 +5,11 @@ import lombok.extern.log4j.Log4j2;
 import ro.game.explorations.Exploration;
 import ro.players.Robot;
 
+/**
+ * The <tt>OffAllCommand</tt> class is responsible for pausing all the {@link Robot} threads in the {@link Exploration}.
+ * <p>
+ * If the robots are already paused, nothing happens.
+ */
 @AllArgsConstructor
 @Log4j2
 public class OffAllCommand implements Command {

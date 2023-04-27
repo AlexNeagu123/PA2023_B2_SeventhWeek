@@ -9,6 +9,9 @@ import ro.shared.Token;
 
 import java.util.*;
 
+/**
+ * The <tt>GraphMap</tt> class implements all the graph logic behind a {@link ro.game.explorations.GraphExploration}
+ */
 @Log4j2
 public class GraphMap implements ExplorationMap {
     private final Cell[] nodeTokens;

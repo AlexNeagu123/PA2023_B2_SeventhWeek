@@ -2,7 +2,6 @@ package ro.game.maps;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
 @AllArgsConstructor

@@ -2,6 +2,10 @@ package ro.shared;
 
 import java.util.*;
 
+/**
+ * The <tt>SharedMemory</tt> class stores a queue of {@link Token} object and provides synchronized, concurrent access to the
+ * queue.
+ */
 public class SharedMemory {
     private final Queue<Token> tokenQueue;
 

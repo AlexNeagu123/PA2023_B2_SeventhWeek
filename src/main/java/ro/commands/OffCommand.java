@@ -5,6 +5,13 @@ import lombok.extern.log4j.Log4j2;
 import ro.game.explorations.Exploration;
 import ro.players.Robot;
 
+/**
+ * The <tt>OffCommand</tt> class is responsible for pausing a specific {@link Robot} thread in the {@link Exploration}.
+ * <p>
+ * The {@code name} of the robot should be provided when the constructor is called.
+ * <p>
+ * If the specified robot is already paused, nothing happens.
+ */
 @AllArgsConstructor
 @Log4j2
 public class OffCommand implements Command {

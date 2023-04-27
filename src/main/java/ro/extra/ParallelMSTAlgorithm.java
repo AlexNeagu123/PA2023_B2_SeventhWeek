@@ -6,6 +6,14 @@ import org.graph4j.Graph;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The <tt>The ParallelMSTAlgorithm</tt> is a version of the <b>Kruskal Algorithm</b> for finding the Minimum Spanning Tree
+ * in a graph.
+ * <p>
+ * In the version implemented by this class, the sorting step is done in a parallel manner, multiple threads being used.
+ *
+ * @see <a href="https://cp-algorithms.com/graph/mst_kruskal.html">Kruskal Algorithm</a>
+ */
 @Log4j2
 public class ParallelMSTAlgorithm {
     protected Graph graph;

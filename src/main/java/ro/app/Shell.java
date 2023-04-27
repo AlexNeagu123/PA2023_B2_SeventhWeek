@@ -12,6 +12,11 @@ import ro.utils.CommandScanner;
 
 import java.io.IOException;
 
+/**
+ * The <tt>Shell</tt> class interacts with the user through the command line until the end of the exploration.
+ * <p>
+ * Lines of text are repeatedly read, mapped to a {@link Command} object, and the executed
+ */
 @AllArgsConstructor
 @Log4j2
 public class Shell {

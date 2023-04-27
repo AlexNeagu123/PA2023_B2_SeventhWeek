@@ -7,6 +7,9 @@ import lombok.extern.log4j.Log4j2;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The <tt>ParallelEdgeSorter</tt> class implements a concurrent Merge Sort.
+ */
 @AllArgsConstructor
 @Log4j2
 public class ParallelEdgeSorter implements Runnable {

@@ -8,6 +8,12 @@ import ro.game.maps.MatrixMap;
 import ro.shared.SharedMemory;
 import ro.utils.NodeUtils;
 
+/**
+ * The <tt>GraphExploration</tt> class represents a graph exploration.
+ * <p>
+ * Several arguments are initialized differently compared to the {@link GraphExploration} such as the number of tokens
+ * in the {@link SharedMemory} and the {@link ro.game.maps.ExplorationMap}
+ */
 @Log4j2
 @Getter
 public class MatrixExploration extends Exploration {
